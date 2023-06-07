@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.5/main.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.5/main.js"></script>
+    <script type='text/javascript'>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        // 구글 API
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+        googleCalendarApiKey: 'AIzaSyCfPOWukMvrzpGOGIrCfWY1HcPVdbIETJY', // 구글 API
+        eventSources: [
+        {
+          googleCalendarId: '575c50e79085b17e6c74f98675b4420916e9e6b0e003c6cc0fb34174d8503271@group.calendar.google.com',
+          className: '학교 일정',
+          color: '#007fff',
+          textColor: 'white'
+        },
+      {
+          googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+          className: '대한민국 휴일',
+            color: 'red',
+            textColor: 'white'
+        },
+      {
+          googleCalendarId: 'b1d7da31aa90d06390f307ac82912f29d2b1e608aa36011dabb4bb42dfeb5022@group.calendar.google.com',
+          className: '기본 일정',
+            color: '#b36ee8',
+            textColor: 'white'
+        }
+    ]
+    });
+
+    calendar.render();
+
+});
+
+</script>
+<style>
+   #calendar{
+   width:60%;
+   margin:20px auto;
+}
+
+
+
+</style>
+</head>
+<body>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Diary</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/calendar">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/todolist">To-do list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id='calendar'></div>
+
+</body>
+</html>
